@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Title</title>
+        <meta name="description" content="A privileged app stub">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+        <link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" href="css/materialize.min.css" media="screen,projection">
+        <script type="text/javascript" src="js/jquery-2.1.1.min.js" defer></script>
+        <script type="text/javascript" src="js/app.js" defer></script>
+		<script type="text/javascript" src="js/materialize.min.js" defer></script>
+        <link rel="prefetch" type="application/l10n" href="data/locales.ini" />
+        <script type="text/javascript" src="js/libs/l10n.js" defer></script>
+    </head>
+    <body>
+        <section class="collection">
+            <div id="food" class="collection-item">Food</div>
+            <div id="cloth" class="collection-item">Clothes</div>
+            <div id="money" class="collection-item">Money</div>
+            <div id="book" class="collection-item">Books</div>
+        </section>
+        <section class="container">
+            <div class="row">
+                <form id="foodForm" class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="foodName" type="text" class="validate">
+                                <label for="foodName">Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="foodQ" type="number" class="validate">
+                                <label for="foodQ">Quantity</label>
+                            </div>
+                        </div>
+                        <p>
+                            <input type="checkbox" id="foodVeg" />
+                            <label for="foodVeg">Veg?</label>
+                        </p>
+                        <p>
+                            <input type="checkbox" id="foodLong" checked="checked" />
+                            <label for="foodLong">Long Lasting?</label>
+                        </p>
+                        <button id="backF" class="btn waves-effect waves-light teal light-blue" type="submit" name="action">Back
+                            <i class="mdi-navigation-arrow-back left"></i>
+                        </button>
+                        <button class="btn waves-effect waves-light teal green darken-1" type="submit" name="action">Submit
+                            <i class="mdi-content-send right"></i>
+                        </button>
+                </form>
+                <form id="clothForm" class="col s12">
+                        <div class="row">
+                            <p>
+                              <input name="male" type="radio" id="male" />
+                              <label for="male">Male</label>
+                            </p>
+                            <p>
+                              <input name="female" type="radio" id="female" />
+                              <label for="female">Female</label>
+                            </p>
+                        </div>
+                        <div class="row">
+                            <label>Type of clothing</label>
+                            <select class="browser-default">
+                              <option value="" disabled selected>Choose your option</option>
+                              <option value="1">Headwear</option>
+                              <option value="2">Upperwear</option>
+                              <option value="3">Lowerwear</option>
+                              <option value="4">Footwear</option>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="clothQ" type="number" class="validate">
+                                <label for="clothQ">Quantity</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label>Size</label>
+                            <select class="browser-default">
+                              <option value="" disabled selected>Choose your option</option>
+                              <option value="1">Small</option>
+                              <option value="2">Medium</option>
+                              <option value="3">Large</option>
+                              <option value="4">Xtra Large</option>
+                            </select>
+                        </div>
+                        <button id="backC" class="btn waves-effect waves-light teal light-blue" type="submit" name="action">Back
+                            <i class="mdi-navigation-arrow-back left"></i>
+                        </button>
+                        <button class="btn waves-effect waves-light teal green darken-1" type="submit" name="action">Submit
+                            <i class="mdi-content-send right"></i>
+                        </button>
+                </form>
+                <form id="moneyForm" class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="moneyQ" type="number" class="validate">
+                            <label for="moneyQ">Amount</label>
+                        </div>
+                    </div>
+                        <button id="backM" class="btn waves-effect waves-light teal light-blue" type="submit" name="action">Back
+                            <i class="mdi-navigation-arrow-back left"></i>
+                        </button>
+                        <button class="btn waves-effect waves-light teal green darken-1" type="submit" name="action">Submit
+                            <i class="mdi-content-send right"></i>
+                        </button>
+                </form>
+                <form id="bookForm" class="col s12">
+                    <div class="row">
+                        <label>Type</label>
+                        <select class="browser-default">
+                          <option value="" disabled selected>Choose your option</option>
+                          <option value="1">Education</option>
+                          <option value="2">Register</option>
+                          <option value="3">Novels</option>
+                        </select>
+                    </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="bookQ" type="number" class="validate">
+                                <label for="bookQ">Quantity</label>
+                            </div>
+                        </div>
+                        <button id="backB" class="btn waves-effect waves-light teal light-blue" type="submit" name="action">Back
+                            <i class="mdi-navigation-arrow-back left"></i>
+                        </button>
+                        <button class="btn waves-effect waves-light teal green darken-1" type="submit" name="action">Submit
+                            <i class="mdi-content-send right"></i>
+                        </button>
+                </form>
+              </div>
+        </section>
+    </body>
+</html>

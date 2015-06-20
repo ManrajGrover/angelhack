@@ -1,8 +1,39 @@
-window.onload = function () {
-	navigator.geolocation.getCurrentPosition(function (position) {
-		var latitude  = position.coords.latitude;
-		var longitude = position.coords.longitude;
-		//alert(latitude); 
-		document.getElementById("lat").innerHTML = 28.449381;
+$(document).ready( function(){
+	$("#foodForm").hide();
+	$("#clothForm").hide();
+	$("#moneyForm").hide();
+	$("#bookForm").hide();
+	$("#food" ).click(function() {
+		console.log("yolo2");
+		$( "#foodForm" ).show();
+		$(".collection").hide();
 	});
- }
+	$("#backF").click(function(){
+		$("#foodForm").hide();
+		$(".collection").show();
+	});
+	$("#cloth" ).click(function() {
+		$( "#clothForm" ).show();
+		$(".collection").hide();
+	});
+	$("#backC").click(function(){
+		$("#clothForm").hide();
+		$(".collection").show();
+	});
+	$("#money" ).click(function() {
+		$( "#moneyForm" ).show();
+		$(".collection").hide();
+	});
+	$("#backM").click(function(){
+		$("#moneyForm").hide();
+		$(".collection").show();
+	});
+	$("#book" ).click(function() {
+		$( "#bookForm" ).show();
+		$(".collection").hide();
+	});
+	$("#backB").click(function(){
+		$("#bookForm").hide();
+		$(".collection").show();
+	});
+});

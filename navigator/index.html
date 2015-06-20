@@ -4,34 +4,36 @@
         <meta charset="utf-8">
         <title>Title</title>
         <meta name="description" content="A privileged app stub">
-        <meta name="viewport" content="width=device-width">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <link rel="stylesheet" href="css/app.css">
-		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/materialize.min.css" media="screen,projection">
         <script type="text/javascript" src="js/app.js" defer></script>
-		<script type="text/javascript" src="js/bootstrap.min.js" defer></script>
+        <script type="text/javascript" src="js/jquery-2.1.1.min.js" defer></script>
+		<script type="text/javascript" src="js/materialize.min.js" defer></script>
         <link rel="prefetch" type="application/l10n" href="data/locales.ini" />
         <script type="text/javascript" src="js/libs/l10n.js" defer></script>
     </head>
     <body>
-		<div class="container" >
-			<div class="row">
-				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-					Title
-				</div>
-			</div>
-			<div class="row">
-				<form>
-					<div class="form-group">
-						<label for="username" id="user_label">Username</label>
-						<input type="email" class="form-control" id="username" placeholder="Please enter a username">
-					</div>
-					<div class="form-group">
-						<label for="password" id="password_label">Password</label>
-						<input type="password" class="form-control" id="password" placeholder="Please enter a password">
-					</div>
-					<button type="submit" class="btn btn-default btn-sm">Submit</button>
-				</form>
-			</div>
-		</div>
+		<section class="container">
+            <div class="row">
+                <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="email" type="email" class="validate">
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="password" type="password" class="validate">
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                        <button class="btn waves-effect waves-light teal green darken-1" type="submit" name="action">Log in
+                            <i class="mdi-content-send right"></i>
+                        </button>
+                </form>
+              </div>
+        </section>
     </body>
 </html>
