@@ -1,11 +1,19 @@
 html, body {
   margin: 0;
-  padding: 0.5rem;
+  background-color:#f0f0f0;
+}
+
+#user_label,#password_label{
+	font-size:11px;
+}
+
+#password,#username{
+	font-size:10px;
 }
 
 body {
   font-size: 1rem;
-  background: #fff;
+  background-color:#f0f0f0;
 }
 
 h1 {
