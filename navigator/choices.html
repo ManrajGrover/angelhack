@@ -14,6 +14,16 @@
         <script type="text/javascript" src="js/libs/l10n.js" defer></script>
     </head>
     <body>
+          <nav class="green">
+            <div class="nav-wrapper">
+              <a href="#!" class="brand-logo">NGO Man</a>
+              <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+              <ul class="side-nav" id="mobile-demo">
+                <li id="add"><a href="#">Add another account</a></li>
+                <li id="logout"><a href="#">Logout</a></li>
+              </ul>
+            </div>
+          </nav>
         <section class="collection">
             <div id="food" class="collection-item">Food</div>
             <div id="cloth" class="collection-item">Clothes</div>
@@ -43,7 +53,7 @@
                             <input type="checkbox" id="foodLong" checked="checked" />
                             <label for="foodLong">Long Lasting?</label>
                         </p>
-                        <button id="backF" class="btn waves-effect waves-light teal light-blue" type="submit" name="action">Back
+                        <button id="backF" class="btn waves-effect waves-light teal light-blue" type="button" name="action">Back
                             <i class="mdi-navigation-arrow-back left"></i>
                         </button>
                         <button class="btn waves-effect waves-light teal green darken-1" type="submit" name="action">Submit
@@ -63,7 +73,7 @@
                         </div>
                         <div class="row">
                             <label>Type of clothing</label>
-                            <select class="browser-default">
+                            <select id="clothOption" name="clothOption" class="browser-default">
                               <option value="" disabled selected>Choose your option</option>
                               <option value="1">Headwear</option>
                               <option value="2">Upperwear</option>
@@ -79,7 +89,7 @@
                         </div>
                         <div class="row">
                             <label>Size</label>
-                            <select class="browser-default">
+                            <select name="size" class="browser-default">
                               <option value="" disabled selected>Choose your option</option>
                               <option value="1">Small</option>
                               <option value="2">Medium</option>
@@ -87,7 +97,7 @@
                               <option value="4">Xtra Large</option>
                             </select>
                         </div>
-                        <button id="backC" class="btn waves-effect waves-light teal light-blue" type="submit" name="action">Back
+                        <button id="backC" class="btn waves-effect waves-light teal light-blue" type="button" name="action">Back
                             <i class="mdi-navigation-arrow-back left"></i>
                         </button>
                         <button class="btn waves-effect waves-light teal green darken-1" type="submit" name="action">Submit
@@ -101,7 +111,7 @@
                             <label for="moneyQ">Amount</label>
                         </div>
                     </div>
-                        <button id="backM" class="btn waves-effect waves-light teal light-blue" type="submit" name="action">Back
+                        <button id="backM" class="btn waves-effect waves-light teal light-blue" type="button" name="action">Back
                             <i class="mdi-navigation-arrow-back left"></i>
                         </button>
                         <button class="btn waves-effect waves-light teal green darken-1" type="submit" name="action">Submit
@@ -111,7 +121,7 @@
                 <form id="bookForm" class="col s12">
                     <div class="row">
                         <label>Type</label>
-                        <select class="browser-default">
+                        <select id="bookOption" name="bookOption" class="browser-default">
                           <option value="" disabled selected>Choose your option</option>
                           <option value="1">Education</option>
                           <option value="2">Register</option>
@@ -124,10 +134,50 @@
                                 <label for="bookQ">Quantity</label>
                             </div>
                         </div>
-                        <button id="backB" class="btn waves-effect waves-light teal light-blue" type="submit" name="action">Back
+                        <button id="backB" class="btn waves-effect waves-light teal light-blue" type="button" name="action">Back
                             <i class="mdi-navigation-arrow-back left"></i>
                         </button>
                         <button class="btn waves-effect waves-light teal green darken-1" type="submit" name="action">Submit
+                            <i class="mdi-content-send right"></i>
+                        </button>
+                </form>
+                <form id="addForm" class="col s12">
+                    <div class="row">
+                        <div class="input-field col s6">
+                          <input id="first_name" type="text" class="validate">
+                          <label for="first_name">First Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                          <input id="last_name" type="text" class="validate">
+                          <label for="last_name">Last Name</label>
+                        </div>
+                      </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="emailSU" type="email" class="validate">
+                                <label for="emailSU">Email</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="passwordSU" type="password" class="validate">
+                                <label for="passwordSU">Password</label>
+                            </div>
+                        </div>
+                        <p>
+                         <input type="checkbox" id="admin" />
+                         <label for="admin">Is admin?</label>
+                       </p>
+                       <div class="row">
+                           <div class="input-field col s12">
+                           <input disabled value="Org" id="disabled" type="text" class="validate">
+                           <label for="disabled">Organization</label>
+                       </div>
+                      </div>
+                      <button id="backSU" class="btn waves-effect waves-light teal light-blue" type="button" name="action">Back
+                          <i class="mdi-navigation-arrow-back left"></i>
+                      </button>
+                        <button class="btn waves-effect waves-light teal green darken-1" type="submit" name="action">Sign up
                             <i class="mdi-content-send right"></i>
                         </button>
                 </form>

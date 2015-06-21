@@ -2,7 +2,11 @@ html, body {
   margin: 0;
   background-color:#f0f0f0;
 }
-
+#scontainer{
+    width:100%;
+    height:480px;
+    margin:auto auto;
+}
 #user_label,#password_label{
 	font-size:11px;
 }
