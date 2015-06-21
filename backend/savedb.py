@@ -6,16 +6,19 @@ import pymongo
 
 try:
     conn = pymongo.MongoClient()
-    print('Connected Successfully')
+    print('Connected Mongo Successfully')
 except:
     print 'Error'
 
 db = conn['test']
 collection = db['users']
 
+
 def signup(data):
+    print "in signup"
     uhash = hashlib.sha1(data['pass']).hexdigest()
                             #    {_id:'a@gmail.com', pass:'123'}
+    
     data.pop('pass',None)
     data['token'] = uhash
     data['items'] = {'food':[], 'clothes': [], 'money': [], 'books': []}
@@ -42,6 +45,7 @@ def login(data):
 def insert_items(data):
     #item_type = data["item_type"]
     #if item_type == "food":
+    #print data + "items--"
     if 'food' in data.keys():
         collection.update({'_id': data['_id']}, {'$push':{'items.food': data['food']}})
         # insert food
