@@ -6,12 +6,71 @@
         <meta name="description" content="A privileged app stub">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
         <link rel="stylesheet" href="css/app.css">
-		<link rel="stylesheet" href="css/materialize.min.css" media="screen,projection">
-        <script type="text/javascript" src="js/jquery-2.1.1.min.js" defer></script>
-        <script type="text/javascript" src="js/app.js" defer></script>
-		<script type="text/javascript" src="js/materialize.min.js" defer></script>
+        <link rel="stylesheet" href="css/materialize.min.css" media="screen,projection">
+        <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/app.js" ></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
         <link rel="prefetch" type="application/l10n" href="data/locales.ini" />
-        <script type="text/javascript" src="js/libs/l10n.js" defer></script>
+        <script type="text/javascript" src="js/libs/l10n.js"></script>
+        <script type="text/javascript">
+          $( document ).ready( function() {
+                $("#foodsub").click( function(){
+                    console.log("In food");
+                    var data ={
+                        "_id": localStorage.getItem('uid'),
+                         "food": [{name: $('#foodName').val(), qty: $('#foodQ').val(),is_veg: $('#foodVeg').is(':checked')? "true": "false", is_long_lasting: $('#foodLong').is(':checked')? "true": "false"}]
+                    };
+                    console.log(data);
+                    var xhr = new XMLHttpRequest({mozSystem:true});
+                    xhr.open("POST", "http://localhost:5000/api/items", false);
+                    // xhr.setRequestHeader("Access-Control-Allow-Origin","*");
+                    xhr.send(JSON.stringify(data));
+                });
+                $("#clothessub").click( function(){
+                    var data ={
+                        "_id": localStorage.getItem('uid'), 
+                         "clothes": [{gender: $("#male").is(":checked") ? "male" : "female", qty: $('#clothesQ').val(),size:$( "#size option:selected" ).text(), type : $( "#type option:selected" ).text() }]
+                    };
+                    console.log(data);
+                    var xhr = new XMLHttpRequest({mozSystem:true});
+                    xhr.open("POST", "http://localhost:5000/api/items", false);
+                    // xhr.setRequestHeader("Access-Control-Allow-Origin","*");
+                    xhr.send(JSON.stringify(data));
+                });
+                $("#moneysub").click( function(){
+                    var data ={
+                        "_id": localStorage.getItem('uid'),
+                         "money" : [{amount: $("#moneyQ").val()}]
+                    };
+                    console.log(data);
+                    var xhr = new XMLHttpRequest({mozSystem:true});
+                    xhr.open("POST", "http://localhost:5000/api/items", false);
+                    // xhr.setRequestHeader("Access-Control-Allow-Origin","*");
+                    xhr.send(JSON.stringify(data));
+                });
+                $("#booksub").click( function(){
+                    var data ={
+                        "_id": localStorage.getItem('uid'),
+                         "books": [{ type : $( "#bookOption option:selected" ).text() ,qty :$("#bookQ").val()   }]
+                    };
+                    console.log(data);
+                    var xhr = new XMLHttpRequest({mozSystem:true});
+                    xhr.open("POST", "http://localhost:5000/api/items", false);
+                    // xhr.setRequestHeader("Access-Control-Allow-Origin","*");
+                    xhr.send(JSON.stringify(data));
+                });
+                $("#create").click( function(){
+                    var data ={
+                        "_id": $('#emailSU').val(),"name": $("#first_name").val(), "pass" : $('#passwordSU').val(), "isAdmin" : $('#admin').is(':checked')? "true": "false", "org" : "smile"
+                    };
+                    console.log(data);
+                    var xhr = new XMLHttpRequest({mozSystem:true});
+                    xhr.open("POST", "http://localhost:5000/api/signup", false);
+                    // xhr.setRequestHeader("Access-Control-Allow-Origin","*");
+                    xhr.send(JSON.stringify(data));
+                });
+            });
+        </script>
     </head>
     <body>
           <nav class="green">
@@ -32,7 +91,7 @@
         </section>
         <section class="container">
             <div class="row">
-                <form id="foodForm" class="col s12">
+                <div id="foodForm" class="col s12">
                         <div class="row">
                             <div class="input-field col s12">
                                 <input id="foodName" type="text" class="validate">
@@ -56,11 +115,11 @@
                         <button id="backF" class="btn waves-effect waves-light teal light-blue" type="button" name="action">Back
                             <i class="mdi-navigation-arrow-back left"></i>
                         </button>
-                        <button class="btn waves-effect waves-light teal green darken-1" type="submit" name="action">Submit
+                        <button id="foodsub" class="btn waves-effect waves-light teal green darken-1" type="submit" name="action">Submit
                             <i class="mdi-content-send right"></i>
                         </button>
-                </form>
-                <form id="clothForm" class="col s12">
+                </div>
+                <div id="clothForm" class="col s12">
                         <div class="row">
                             <p>
                               <input name="male" type="radio" id="male" />
@@ -100,11 +159,11 @@
                         <button id="backC" class="btn waves-effect waves-light teal light-blue" type="button" name="action">Back
                             <i class="mdi-navigation-arrow-back left"></i>
                         </button>
-                        <button class="btn waves-effect waves-light teal green darken-1" type="submit" name="action">Submit
+                        <button id="clothessub" class="btn waves-effect waves-light teal green darken-1" type="submit" name="action">Submit
                             <i class="mdi-content-send right"></i>
                         </button>
-                </form>
-                <form id="moneyForm" class="col s12">
+                </div>
+                <div id="moneyForm" class="col s12">
                     <div class="row">
                         <div class="input-field col s12">
                             <input id="moneyQ" type="number" class="validate">
@@ -114,11 +173,11 @@
                         <button id="backM" class="btn waves-effect waves-light teal light-blue" type="button" name="action">Back
                             <i class="mdi-navigation-arrow-back left"></i>
                         </button>
-                        <button class="btn waves-effect waves-light teal green darken-1" type="submit" name="action">Submit
+                        <button  id="moneysub" class="btn waves-effect waves-light teal green darken-1" type="submit" name="action">Submit
                             <i class="mdi-content-send right"></i>
                         </button>
-                </form>
-                <form id="bookForm" class="col s12">
+                </div>
+                <div id="bookForm" class="col s12">
                     <div class="row">
                         <label>Type</label>
                         <select id="bookOption" name="bookOption" class="browser-default">
@@ -137,19 +196,15 @@
                         <button id="backB" class="btn waves-effect waves-light teal light-blue" type="button" name="action">Back
                             <i class="mdi-navigation-arrow-back left"></i>
                         </button>
-                        <button class="btn waves-effect waves-light teal green darken-1" type="submit" name="action">Submit
+                        <button  id="booksub" class="btn waves-effect waves-light teal green darken-1" type="submit" name="action">Submit
                             <i class="mdi-content-send right"></i>
                         </button>
-                </form>
-                <form id="addForm" class="col s12">
+                </div>
+                <div id="addForm" class="col s12">
                     <div class="row">
                         <div class="input-field col s6">
                           <input id="first_name" type="text" class="validate">
                           <label for="first_name">First Name</label>
-                        </div>
-                        <div class="input-field col s6">
-                          <input id="last_name" type="text" class="validate">
-                          <label for="last_name">Last Name</label>
                         </div>
                       </div>
                         <div class="row">
@@ -177,10 +232,10 @@
                       <button id="backSU" class="btn waves-effect waves-light teal light-blue" type="button" name="action">Back
                           <i class="mdi-navigation-arrow-back left"></i>
                       </button>
-                        <button class="btn waves-effect waves-light teal green darken-1" type="submit" name="action">Sign up
+                        <button id="create" class="btn waves-effect waves-light teal green darken-1" type="submit" name="action">Sign up
                             <i class="mdi-content-send right"></i>
                         </button>
-                </form>
+                </div>
               </div>
         </section>
     </body>
