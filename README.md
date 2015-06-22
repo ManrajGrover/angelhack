@@ -10,6 +10,6 @@ Contributors
 
 * [Manraj Singh Grover (@ManrajGrover)](https://github.com/ManrajGrover)
 * [Sanyam Khurana (@CuriousLearner)](https://github.com/CuriousLearner)
-* [Vikram Jaswal (@Vikramj74)](https://github.com/vikramj74)
+* [Vikram Jaswal (@vikramj74)](https://github.com/vikramj74)
 * [Nikhil Handa (@slayslot)](https://github.com/slayslot)
 * [Amit Tripathi (@amitt001)](https://github.com/amitt001)
