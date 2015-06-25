@@ -121,6 +121,4 @@ def index():
     return 'API home page'
 
 if __name__ == '__main__':
-    app.run(debug=True)
-
-#host='0.0.0.0'
+    app.run()
