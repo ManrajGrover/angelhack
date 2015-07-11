@@ -151,7 +151,7 @@ $(document).ready( function(){
 			console.log("In food");
 			var data ={
 				"_id": localStorage.getItem('uid'),
-				"food": [{name: $('#foodName').val(), qty: $('#foodQ').val(),is_veg: $('#foodVeg').is(':checked')? "true": "false", is_long_lasting: $('#foodLong').is(':checked')? "true": "false"}]
+				"food": {name: $('#foodName').val(), qty: $('#foodQ').val(),is_veg: $('#foodVeg').is(':checked')? "true": "false", is_long_lasting: $('#foodLong').is(':checked')? "true": "false"}
 			};
 			console.log(data);
 			var xhr = new XMLHttpRequest({mozSystem:true});
@@ -165,7 +165,7 @@ $(document).ready( function(){
 	$("#clothessub").click( function(){
 		var data ={
 			"_id": localStorage.getItem('uid'), 
-			"clothes": [{gender: $("#male").is(":checked") ? "male" : "female", qty: $('#clothQ').val(),size:$( "#size option:selected" ).text(), type : $( "#clothType option:selected" ).text() }]
+			"clothes": {gender: $("#male").is(":checked") ? "male" : "female", qty: $('#clothQ').val(),size:$( "#size option:selected" ).text(), type : $( "#clothType option:selected" ).text() }
 		};
 		console.log(data);
 		console.log(data.clothes[0]);
@@ -180,7 +180,7 @@ $(document).ready( function(){
 	$("#moneysub").click( function(){
 		var data ={
 			"_id": localStorage.getItem('uid'),
-			"money" : [{amount: $("#moneyQ").val()}]
+			"money" : {amount: $("#moneyQ").val()}
 		};
 		console.log(data);
 		var xhr = new XMLHttpRequest({mozSystem:true});
@@ -194,7 +194,7 @@ $(document).ready( function(){
 	$("#booksub").click( function(){
 		var data ={
 			"_id": localStorage.getItem('uid'),
-			"books": [{ type : $( "#bookOption option:selected" ).text() ,qty :$("#bookQ").val()   }]
+			"books": { type : $( "#bookOption option:selected" ).text() ,qty :$("#bookQ").val()   }
 		};
 		console.log(data);
 		var xhr = new XMLHttpRequest({mozSystem:true});
