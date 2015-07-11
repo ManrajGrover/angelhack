@@ -142,4 +142,80 @@ $(document).ready( function(){
 				$('#password').addClass('invalid');
 			}
 		}); 
+	
+	
+	
+	// Food donation logging logic --> applies to : choices.html
+	$("#foodsub").click( 
+		function(){
+			console.log("In food");
+			var data ={
+				"_id": localStorage.getItem('uid'),
+				"food": [{name: $('#foodName').val(), qty: $('#foodQ').val(),is_veg: $('#foodVeg').is(':checked')? "true": "false", is_long_lasting: $('#foodLong').is(':checked')? "true": "false"}]
+			};
+			console.log(data);
+			var xhr = new XMLHttpRequest({mozSystem:true});
+			xhr.open("POST", "http://localhost:5000/api/items", false);
+			// xhr.setRequestHeader("Access-Control-Allow-Origin","*");
+			xhr.send(JSON.stringify(data));
+		});
+	
+	
+	// Cloth donation logging logic --> applies to : choices.html
+	$("#clothessub").click( function(){
+		var data ={
+			"_id": localStorage.getItem('uid'), 
+			"clothes": [{gender: $("#male").is(":checked") ? "male" : "female", qty: $('#clothesQ').val(),size:$( "#size option:selected" ).text(), type : $( "#type option:selected" ).text() }]
+		};
+		console.log(data);
+		var xhr = new XMLHttpRequest({mozSystem:true});
+		xhr.open("POST", "http://localhost:5000/api/items", false);
+		// xhr.setRequestHeader("Access-Control-Allow-Origin","*");
+		xhr.send(JSON.stringify(data));
+	});
+	
+	
+	// Money donation logging logic --> applies to : choices.html
+	$("#moneysub").click( function(){
+		var data ={
+			"_id": localStorage.getItem('uid'),
+			"money" : [{amount: $("#moneyQ").val()}]
+		};
+		console.log(data);
+		var xhr = new XMLHttpRequest({mozSystem:true});
+		xhr.open("POST", "http://localhost:5000/api/items", false);
+		// xhr.setRequestHeader("Access-Control-Allow-Origin","*");
+		xhr.send(JSON.stringify(data));
+	});
+	
+	
+	// Book donation logging logic --> applies to : choices.html
+	$("#booksub").click( function(){
+		var data ={
+			"_id": localStorage.getItem('uid'),
+			"books": [{ type : $( "#bookOption option:selected" ).text() ,qty :$("#bookQ").val()   }]
+		};
+		console.log(data);
+		var xhr = new XMLHttpRequest({mozSystem:true});
+		xhr.open("POST", "http://localhost:5000/api/items", false);
+		// xhr.setRequestHeader("Access-Control-Allow-Origin","*");
+		xhr.send(JSON.stringify(data));
+	});
+	
+	
+	// User creation logic  --> applies to : --
+	$("#create").click( function(){
+		var data ={
+			"_id": $('#emailSU').val(),"name": $("#first_name").val(), "pass" : $('#passwordSU').val(), "isAdmin" : $('#admin').is(':checked')? "true": "false", "org" : "smile"
+		};
+		console.log(data);
+		var xhr = new XMLHttpRequest({mozSystem:true});
+		xhr.open("POST", "http://localhost:5000/api/signup", false);
+		// xhr.setRequestHeader("Access-Control-Allow-Origin","*");
+		xhr.send(JSON.stringify(data));
+	});
+
+	
+	
+	
 });
