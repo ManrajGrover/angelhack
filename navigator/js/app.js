@@ -132,6 +132,7 @@ $(document).ready( function(){
 				//console.log(xhr.responseText);
 				localStorage.setItem("uid",$("#email").val());
 				localStorage.setItem("token", x.token);
+				//localStorage.setItem("org", x.org);
 				//console.log('hey'+localStorage.getItem('username'));
 				window.location = "choices.html";
 			}
@@ -213,6 +214,7 @@ $(document).ready( function(){
 		var xhr = new XMLHttpRequest({mozSystem:true});
 		xhr.open("POST", "http://localhost:5000/api/signup", false);
 		// xhr.setRequestHeader("Access-Control-Allow-Origin","*");
+		xhr.setRequestHeader("Content-Type","application/json");
 		xhr.send(JSON.stringify(data));
 	});
 
