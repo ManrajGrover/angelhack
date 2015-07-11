@@ -165,9 +165,10 @@ $(document).ready( function(){
 	$("#clothessub").click( function(){
 		var data ={
 			"_id": localStorage.getItem('uid'), 
-			"clothes": [{gender: $("#male").is(":checked") ? "male" : "female", qty: $('#clothesQ').val(),size:$( "#size option:selected" ).text(), type : $( "#type option:selected" ).text() }]
+			"clothes": [{gender: $("#male").is(":checked") ? "male" : "female", qty: $('#clothQ').val(),size:$( "#size option:selected" ).text(), type : $( "#clothType option:selected" ).text() }]
 		};
 		console.log(data);
+		console.log(data.clothes[0]);
 		var xhr = new XMLHttpRequest({mozSystem:true});
 		xhr.open("POST", "http://localhost:5000/api/items", false);
 		// xhr.setRequestHeader("Access-Control-Allow-Origin","*");
