@@ -12,36 +12,6 @@
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <link rel="prefetch" type="application/l10n" href="data/locales.ini" />
         <script type="text/javascript" src="js/libs/l10n.js"></script>
-        <script type="text/javascript">
-            $( document ).ready( function() {
-                $("#login_b").click( function(){
-                    var login_packet ={
-                        "_id": $("#email").val(),
-                        "pass": $("#password").val()
-                    };
-                    console.log(login_packet);
-                    var xhr = new XMLHttpRequest({mozSystem:true});
-                    xhr.open("POST", "http://localhost:5000/api/login", false);
-                    // xhr.setRequestHeader("Access-Control-Allow-Origin","*");
-                    xhr.send(JSON.stringify(login_packet));
-                    var x= JSON.parse(xhr.responseText) ;
-                    if(x.loggedIn == true){
-                        console.log("Login successful, redirecting to home.html");
-                        //console.log(xhr.responseText);
-                        localStorage.setItem("uid",$("#email").val());
-                        localStorage.setItem("token", x.token);
-                        //console.log('hey'+localStorage.getItem('username'));
-                        window.location = "choices.html";
-                    }
-                    else{
-                        console.log("Login unsuccessful, show the message");
-                        $('#login').append("Login not successful, Please try again.");
-                        $('#email').addClass('invalid');
-                        $('#password').addClass('invalid');
-                    }
-                });
-            });
-        </script>
     </head>
     <body>
         <section class="container">
@@ -61,7 +31,7 @@
                         </div>
                         <button id="login_b" class="btn waves-effect waves-light teal green darken-1" type="submit" name="action">Log in
                             <i class="mdi-content-send right"></i>
-                        </input>
+                        </button>
                 </div>
               </div>
         </section>

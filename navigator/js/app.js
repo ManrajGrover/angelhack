@@ -1,4 +1,6 @@
-$(document).ready( function(){
+var item = document.getElementById('some-item');
+$(document).ready( function(){ 
+	console.log("fires me !!!");
 	$(".button-collapse").sideNav();
 	$("#foodForm").hide();
 	$("#clothForm").hide();
@@ -109,4 +111,35 @@ $(document).ready( function(){
 		$("#addForm").hide();
 		$(".collection").show();
 	});
+	
+	// login logic --> applies to : index.html
+	console.log("Over login_b");
+	$("#login_b").click( 
+		function(){
+			console.log("setting up login");
+			var login_packet ={
+				"_id": $("#email").val(),
+				"pass": $("#password").val()
+			};
+			console.log(login_packet);
+			var xhr = new XMLHttpRequest({mozSystem:true});
+			xhr.open("POST", "http://localhost:5000/api/login", false);
+			// xhr.setRequestHeader("Access-Control-Allow-Origin","*");
+			xhr.send(JSON.stringify(login_packet));
+			var x= JSON.parse(xhr.responseText) ;
+			if(x.loggedIn == true){
+				console.log("Login successful, redirecting to home.html");
+				//console.log(xhr.responseText);
+				localStorage.setItem("uid",$("#email").val());
+				localStorage.setItem("token", x.token);
+				//console.log('hey'+localStorage.getItem('username'));
+				window.location = "choices.html";
+			}
+			else{
+				console.log("Login unsuccessful, show the message");
+				$('#login').append("Login not successful, Please try again.");
+				$('#email').addClass('invalid');
+				$('#password').addClass('invalid');
+			}
+		}); 
 });
